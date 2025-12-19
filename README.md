@@ -41,6 +41,10 @@ This approach is simple, fast, and reasonable for maximizing the number of fully
 | Language | Kotlin |
 | Build System | Gradle (KTS) |
 
+## Project Structure
+
+<img width="235" height="246" alt="Screenshot 2025-12-19 at 4 14 05 PM" src="https://github.com/user-attachments/assets/9bf13a71-2234-473f-9de5-14cb52469b5e" />
+
 ## UI
 
 - Single screen displaying the charging schedule
@@ -61,12 +65,31 @@ This approach is simple, fast, and reasonable for maximizing the number of fully
 2. Sync Gradle
 3. Run the app on an emulator or physical device (minSdk: 26)
 
-## Sample Data
+## Sample Input and Output
 
-The app uses predefined sample data:
-- **5 Trucks** with varying battery capacities (110-160 kWh) and charge levels (10-40%)
-- **2 Chargers** with different charging rates (40 kW and 60 kW)
-- **Time Window**: 8 hours
+### Sample Input
 
-The schedule is automatically generated when the app launches.
+**Trucks**
+- Truck_1: 160 kWh capacity, 10% charged
+- Truck_2: 150 kWh capacity, 20% charged
+- Truck_3: 130 kWh capacity, 25% charged
+- Truck_4: 120 kWh capacity, 30% charged
+- Truck_5: 110 kWh capacity, 40% charged
+
+**Chargers**
+- Charger_1: 60 kW
+- Charger_2: 40 kW
+
+**Time Window**
+- 8 hours
+
+---
+
+### Expected Output
+
+Based on the greedy scheduling algorithm, the charging schedule will be:
+
+```text
+Charger_1: Truck_5, Truck_4, Truck_3, Truck_2
+Charger_2: Truck_1
 
